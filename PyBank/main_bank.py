@@ -1,20 +1,17 @@
-import os
 import csv
 
-csvpath = os.path.join('budget_data.csv')
-
 # open Budget_data CSV file 
-with open(csvpath) as budget:
+with open('budget_data.csv', mode="r") as budget:
     csvreader = csv.reader(budget, delimiter = ",")
 
     # skip header row
     next(csvreader, None)
 
-    # The total number of months included in the dataset
+    # count the number of rows (except the header) to get the total number of months included in the dataset
     months = len(list(csvreader))
 
 # open Budget_data CSV file 
-with open(csvpath) as budget:
+with open('budget_data.csv', mode="r") as budget:
     csvreader = csv.reader(budget, delimiter = ",")
 
     # skip header row
@@ -29,7 +26,7 @@ with open(csvpath) as budget:
     avg = round(total/months,2)
 
 # open Budget_data CSV file 
-with open(csvpath) as budget:
+with open('budget_data.csv', mode="r") as budget:
     csvreader = csv.reader(budget, delimiter = ",")
 
     # skip header row
@@ -42,13 +39,13 @@ with open(csvpath) as budget:
             increase = int(lines[1])
             increase_date = lines[0]
 
-
 # open Budget_data CSV file 
-with open(csvpath) as budget:
+with open('budget_data.csv', mode="r") as budget:
     csvreader = csv.reader(budget, delimiter = ",")
 
     # skip header row
     next(csvreader, None)
+
 
     # The greatest decrease in losses (date and amount) over the entire period
     decrease = 0
@@ -69,7 +66,7 @@ with open(csvpath) as budget:
 # export to text file
 
 # Set variable for output file
-output_file = os.path.join("financial_analysis.txt")
+output_file = ("financial_analysis.txt")
 
 with open(output_file, "w") as text_file:
     textwriter = text_file.write(str("Financial Analysis" '\n'
